@@ -34,11 +34,13 @@ class CommentsSpider(FacebookSpider):
         '''
         '''
         if self.type == 'post':
+            self.logger.info('Parsing type is post.')
             yield scrapy.Request(url=response.url,
                                  callback=self.parse_post,
                                  priority=10,
                                  meta={'index':1})
         elif self.type == 'page':
+            self.logger.info('Parsing type is page.')
             #select all posts
             for post in response.xpath("//article[contains(@data-ft,'top_level_post_id')]"):
                 many_features = post.xpath('./@data-ft').get()
