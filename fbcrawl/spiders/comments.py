@@ -195,8 +195,8 @@ class CommentsSpider(FacebookSpider):
         '''
         parse reply to comments, root comment is added if flag
         '''
-#        from scrapy.utils.response import open_in_browser
-#        open_in_browser(response)
+        #from scrapy.utils.response import open_in_browser
+        #open_in_browser(response)
 
         if response.meta['flag'] == 'init':
             #parse root comment
